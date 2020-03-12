@@ -1,0 +1,108 @@
+#pragma once
+#include "util/config.h"
+#include "util/debug.h"
+struct shellstate_t{
+	int arg;
+	int arg2;
+	char args[100];
+	int l;
+	int NumberOfKeysPressed;
+	int NumberOfKeysPressedSoFar;
+	int Output;
+	int functioncode;
+	int val;
+	int keysPressed;
+	int output;
+	bool valid;
+	int evaluate;
+	int state;
+	int complete;
+	int flag;
+	int flag2;
+	int l2;
+	int l3;
+	int f_ret;
+	bool f_done;
+	int f_i;
+	int f_j;
+	int states;
+	int f_sum;
+	int statef;
+	int arg_1;
+	int arg2_1;
+	int flag_s;
+	int flag2_s;
+	int mode;
+	int main;
+	int arg_1_s[5];
+	int arg2_1_s[5];
+	bool f_done_s[5];
+	int f_ret_s[5];
+	int statef_s[5];
+	int schedule[5];
+	int index;
+	int stop;
+	int temp_index;
+	int flag_first;
+	int flag_second;
+	int flag_index;
+	bool displayed[5];
+};
+
+struct renderstate_t{
+	int NumberOfKeysPressed;
+	//char MenuHighlighted[100];
+	int states;
+	int mode;
+	int NumberOfKeysPressedSoFar;
+	int functioncode;
+	int FunctionResult;
+	int val;
+	int keysPressed;
+	int menu;
+	int output;
+	int displayResult;
+	int state;
+	int complete;
+	int evaluate;
+	int flag;
+	int arg;
+	int arg2;
+	char args[100];
+	char input[100];
+	int l2;
+	int l;
+	int f_ret;
+	bool f_done;
+	int f_i;
+	int f_j;
+	int f_sum;
+	int statef;
+	int arg_1;
+	int arg2_1;
+	int flag_s;
+	int flag2_s;
+	int main;
+	int arg_1_s[5];
+	int arg2_1_s[5];
+	bool f_done_s[5];
+	int f_ret_s[5];
+	int statef_s[5];
+	int schedule[5];
+	int index;
+	int stop;
+	int temp_index;
+	int flag_first;
+	int flag_second;
+	int flag_index;
+	bool displayed[5];
+};
+
+void shell_init(shellstate_t& state);
+void shell_update(uint8_t scankey, shellstate_t& stateinout);
+void shell_step(shellstate_t& stateinout);
+void shell_render(const shellstate_t& shell, renderstate_t& render);
+
+bool render_eq(const renderstate_t& a, const renderstate_t& b);
+void render(const renderstate_t& state, int w, int h, addr_t display_base);
+
